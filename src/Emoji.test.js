@@ -29,7 +29,11 @@ describe('all test', () => {
     })
 
     it("should copy", () => {
+        document.execCommand = jest.fn();
         userEvent.click(emoji100)
+
+        expect(document.execCommand).toBeCalledWith('copy')
+
         const copyEmoji = window.ClipboardData;
         expect(copyEmoji).toEqual(emoji100.value)
     })
