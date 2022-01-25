@@ -9,6 +9,9 @@
     "react-scripts": "^3.0.1"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "clipboard": "^2.0.4",
     "github-fork-ribbon-css": "^0.2.1",
     "react": "^16.8.6",
