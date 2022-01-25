@@ -29,12 +29,14 @@ describe('all test', () => {
     })
 
     it("should copy", () => {
-        document.execCommand = jest.fn();
-        userEvent.click(emoji100)
+        //öncelikle execCommand'i mockluyoruz.
+        document.execCommand = jest.fn(); // execCommand detaylı bakmak için link: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand
+        //uygulamayı ayağa kaldırıp console üzerinden document.execCommand("copy") yazdığınızda fareniz ile daha önce seçtiğiniz yeri kopyalar. execCommand'in bunun gibi fonksiyonları var.
+        userEvent.click(emoji100) //emoji100 üzerine tıklamayı sağlıyoruz
 
-        expect(document.execCommand).toBeCalledWith('copy')
-
-        const copyEmoji = window.ClipboardData;
+        expect(document.execCommand).toBeCalledWith('copy') // burada execCommand'in 'copy' olarak çağırılıp çağırılmadığını soruyoruz
+        
+        const copyEmoji = window.ClipboardData; //kopyalanan datayı alıyoruz.
         expect(copyEmoji).toEqual(emoji100.value)
     })
 });
